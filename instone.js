@@ -3,7 +3,7 @@ import { OrbitControls } from 'OrbitControls';
 import { GLTFLoader } from 'GLTFLoader';
 
 			const scene = new THREE.Scene();
-      scene.background = new THREE.Color(0xff000f); 
+      scene.background = new THREE.Color(0x000000); 
       // const axesHelper = new THREE.AxesHelper(5)
       // scene.add(axesHelper)
 
@@ -66,7 +66,7 @@ import { GLTFLoader } from 'GLTFLoader';
         skyMaterialArray[i].side = THREE.BackSide
       }
 
-      const skyGeometry = new THREE.BoxGeometry( 400,400,400 );
+      const skyGeometry = new THREE.BoxGeometry( 800,800,800 );
 			const skyMaterial = new THREE.MeshBasicMaterial( { color: 0x333333 } );
 			const cube = new THREE.Mesh( skyGeometry, skyMaterialArray );
 			scene.add( cube );
@@ -133,7 +133,8 @@ loader01.load(
 
 			function animate() {
 				requestAnimationFrame( animate );
-
+				camera.lookAt( 1, 50, 0);
+       				 camera.position.y += 0.05;
 			
 
 				renderer.render( scene, camera );
